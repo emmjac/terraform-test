@@ -1,3 +1,11 @@
+resource "aws_instance" "web2" {
+  ami           = "ami-0453ec754f44f9a4a"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
 terraform {
   required_providers {
     aws = {
@@ -11,7 +19,7 @@ terraform {
 provider "aws" {
   region = "us-east-1"
   assume_role {
-    role_arn = ""
+    role_arn = "arn:aws:iam::992382757497:role/admin"
   }
 
 }
